@@ -16,3 +16,9 @@ jobs:
         run: |
           echo "Hello ${{ github.event.inputs.person }}"
 
+      - name: Archive artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: greeting-result
+          path: output.txt
+
