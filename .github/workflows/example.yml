@@ -1,0 +1,17 @@
+name: Example Workflow
+on:
+    workflow_dispatch:
+      inputs: 
+        person:
+          description: "PErson's name"
+          required: true
+          default: "Anon"
+
+jobs:
+  say_hello:
+    runs_on: ubuntu-latest
+    steps:
+      -name: Greeting
+        run: 
+          echo "Hello ${{ github.events.inputs.person }}"
+      
