@@ -14,11 +14,25 @@ jobs:
     steps:
       - name: Greeting
         run: |
-          echo "Hello ${{ github.event.inputs.person }}"
+          echo "Hello ${{ github.event.inputs.person }}" > output.txt
 
       - name: Archive artifact
         uses: actions/upload-artifact@v3
         with:
-          name: greeting-result
+          name: greeting-result-en
           path: output.txt
+
+  say_bonjour:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: |
+          echo "Hello ${{ github.event.inputs.person }}" > output.txt
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: greeting-result-fr
+          path: output.txt
+        
 
